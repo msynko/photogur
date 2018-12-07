@@ -1,4 +1,13 @@
 <h1>Add a picture</h1>
+
+<% if @picture.errors.any? %>
+  <div>
+    <% @picture.errors.full_messages.each do |message| %>
+    <p> <%= message %> </p>
+    <% end %>
+  </div>
+<% end %>
+
 <%= link_to("Back to Pictures", "/pictures") %>
 <%= form_for(@picture) do |f| %>
   <p>
