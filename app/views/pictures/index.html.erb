@@ -7,3 +7,27 @@
 
   <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
 <% end %>
+
+<h1>Most recent pictures</h1>
+<ul>
+  <% @most_recent_pictures.each do |picture| %>
+    <li><%= picture.title %></li>
+    <li><%= picture.created_at%></li>
+    <% end %>
+</ul>
+
+<h1>Most recent pictures 1 month old</h1>
+<ul>
+  <% @month_old.each do |picture| %>
+    <li><%= picture.title %></li>
+    <li><%= picture.created_at%></li>
+  <% end %>
+</ul>
+
+<h1>Pictures from 2018</h1>
+<ul>
+  <% @year_picture.each do |picture| %>
+    <li><%= picture.title %></li>
+    <li><%= picture.pictures_created_in_year%></li>
+  <% end %>
+</ul>
