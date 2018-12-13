@@ -11,5 +11,19 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def ensure_logged_in
+    unless current_user
+      flash[:alert] = "Please log in"
+      redirect_to new_sessions_url
+    end
+  end
+
+  def ensure_user_owns_picture
+    unless current_user == @picture.user
+      flash[:alert] = "Please log in"
+      redirect_to new_sessions_url
+    end
+  end
+
 
 end
